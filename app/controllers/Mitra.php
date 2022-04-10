@@ -80,7 +80,7 @@ class Mitra extends Controller{
           $this->view("Component/modal_redirect",$data_alert = [
             "type" => true,
             "title" => "Success",
-            "message" => "Data Berhasil Diperbarui",
+            "message" => "Data saved successfully",
             "url" => BASE_URL.'/Mitra/Profile/'.$params[0]
           ]);
         }
@@ -88,7 +88,7 @@ class Mitra extends Controller{
           $this->view("Component/modal_redirect",$data_alert = [
             "type" => false,
             "title" => "Peringatan",
-            "message" => "Data gagal diperbarui",
+            "message" => "Failed to update data",
             "url" => BASE_URL.'/Mitra/edit/'.$params[0]
           ]);
         }
@@ -97,7 +97,7 @@ class Mitra extends Controller{
         $this->view("Component/modal_redirect",$data_alert = [
           "type" => false,
           "title" => "Peringatan",
-          "message" => "Password Salah",
+          "message" => "Password Wrong!",
           "url" => BASE_URL.'/Mitra/edit/'.$params[0]
         ]);
       }

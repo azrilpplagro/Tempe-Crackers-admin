@@ -22,7 +22,7 @@ class Login extends Controller{
       else{
         $this->view("Component/modal",$data_alert = [
           "title" => "Warning",
-          "message" => "username atau password yang anda masukan salah"
+          "message" => "The username or password you entered is wrong"
         ]);
       }
     }

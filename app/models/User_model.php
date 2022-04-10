@@ -24,7 +24,7 @@ class User_model{
   public function update_data($data){
     
     try{
-      $query = "UPDATE $this->table SET alamat = :alamat,desa_id = :desa,kecamatan_id = :kecamatan,kabupaten_id = :kabupaten,provinsi_id = :provinsi,negara_id = :negara, username = :username ,no_telepon = :no_telepon, tanggal_lahir = :tanggal_lahir,jenis_kelamin_id = :jenis_kelamin,nama_lengkap= :nama_lengkap WHERE email= :email";
+      $query = "UPDATE $this->table SET alamat = :alamat, username = :username ,no_telepon = :no_telepon, tanggal_lahir = :tanggal_lahir,jenis_kelamin_id = :jenis_kelamin,nama_lengkap= :nama_lengkap WHERE email= :email";
       $this->db->query($query);
       $this->db->bind('email',$data['email']);
       $this->db->bind('username',$data['username']);
@@ -33,11 +33,6 @@ class User_model{
       $this->db->bind('jenis_kelamin',$data['jenis_kelamin']);
       $this->db->bind('tanggal_lahir',$data['tanggal_lahir']);
       $this->db->bind('alamat',$data['alamat']);
-      $this->db->bind('desa',$data['desa']);
-      $this->db->bind('kecamatan',$data['kecamatan']);
-      $this->db->bind('kabupaten',$data['kabupaten']);
-      $this->db->bind('provinsi',$data['provinsi']);
-      $this->db->bind('negara',$data['negara']);
       $this->db->execute();
       return true;
     }

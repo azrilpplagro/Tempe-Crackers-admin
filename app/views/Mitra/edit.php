@@ -15,7 +15,7 @@
           <td><?= $data['mitra_data']['email'] ?></td>
         </tr>
         <tr>
-          <td>No Telepon</td>
+          <td>Phone Number</td>
           <td><?= $data['mitra_data']['no_telepon'] ?></td>
         </tr>
         <tr>
@@ -23,45 +23,45 @@
           <td><?= $data['mitra_data']['username'] ?></td>
         </tr>
         <tr>
-          <td>Nama Lengkap</td>
+          <td>Ful Name</td>
           <td><?= $data['mitra_data']['nama_lengkap'] ?></td>
         </tr>
         <tr>
-          <td>Alamat</td>
+          <td>Address</td>
           <td><?= $data['mitra_data']['alamat'] ?>, <?= 
             $this->model("Mitra_model")->get_spesifik_alamat(
               $data['mitra_data']['desa_id'],$data['mitra_data']['kecamatan_id'], $data['mitra_data']['kabupaten_id'],$data['mitra_data']['provinsi_id'],$data['mitra_data']['negara_id']); 
           ?></td>
         </tr>
         <tr>
-          <td>Tanggal Lahir</td>
+          <td>Date of Birth</td>
           <td><?= $data['mitra_data']['tanggal_lahir'] ?></td>
         </tr>
         <tr>
-          <td>Jenis Kelamin</td>
+          <td>Gender</td>
           <td>
               <?php 
                 if($data['mitra_data']['jenis_kelamin_id'] == 1){
-                  echo  'Laki-laki';
+                  echo  'Male';
                 }else{
-                  echo  'Perempuan';
+                  echo  'Female';
                 }  
               ?>
           </td>
         </tr>
         <tr>
-          <td>Status Akun</td>
+          <td>Account Status</td>
           <td>
           <span style="display: flex;width:300px" >
             <select class="form-select" id="jenis_kelamin" name="status_akun" aria-label="Default select example">
               <?php 
                 if($data['mitra_data']['status_akun_id'] == 1){
-                  echo '<option value="1" selected>Aktiv</option>
-                        <option value="2">Tidak Aktiv</option>';
+                  echo '<option value="1" selected>Active</option>
+                        <option value="2">Not Active</option>';
                 }
                 else{
-                  echo  '<option value="2" selected>Tidak Aktiv</option>
-                        <option value="1">Aktiv</option>';
+                  echo  '<option value="2" selected>Not Active</option>
+                        <option value="1">Active</option>';
                 }  
               ?>
             </select>
@@ -70,6 +70,6 @@
         </tr>
       </table>
     <br>
-    <button type="submit" name="edit" value="submit" class="btn btn-dark" style="width: 300px;">Simpan</button>
+    <button type="submit" name="edit" value="submit" class="btn btn-dark" style="width: 300px;">Save</button>
   </form>
 </div>

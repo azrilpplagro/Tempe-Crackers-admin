@@ -11,7 +11,7 @@
           <td><?= $data['user_data']['email'] ?></td>
         </tr>
         <tr>
-          <td>No Telepon</td>
+          <td>Phone Number</td>
           <td><?= $data['user_data']['no_telepon'] ?></td>
         </tr>
         <tr>
@@ -19,25 +19,25 @@
           <td><?= $data['user_data']['username'] ?></td>
         </tr>
         <tr>
-          <td>Nama Lengkap</td>
+          <td>Full Name</td>
           <td><?= $data['user_data']['nama_lengkap'] ?></td>
         </tr>
         <tr>
-          <td>Alamat</td>
+          <td>Address</td>
           <td><?= $data['user_data']['alamat'] ?>, <?= 
             $this->model("Mitra_model")->get_spesifik_alamat(
               $data['user_data']['desa_id'],$data['user_data']['kecamatan_id'], $data['user_data']['kabupaten_id'],$data['user_data']['provinsi_id'],$data['user_data']['negara_id']); 
           ?></td>
         </tr>
         <tr>
-          <td>Tanggal Lahir</td>
+          <td>Birth of Date</td>
           <td><?= $data['user_data']['tanggal_lahir'] ?></td>
           
         </tr>
         <tr>
-          <td>Jenis Kelamin</td>
+          <td>Gender</td>
           <td><?php 
-                if($data['user_data']['jenis_kelamin_id'] == 1){echo 'Pria';}else{echo 'Wanita';}  
+                if($data['user_data']['jenis_kelamin_id'] == 1){echo 'Male';}else{echo 'Female';}  
               ?>
           </td>
         </tr>

@@ -33,38 +33,16 @@ class Mitra_model{
     }
   }
   public function update_data($data){
-
-    $query = "SELECT * FROM $this->table WHERE (username = :username  || no_telepon = :no_telepon) && email != :email ";
-    $this->db->query($query);
-    $this->db->bind('email',$data['email']);
-    $this->db->bind('username',$data['username']);
-    $this->db->bind('no_telepon',$data['no_telepon']);
-    if ($this->db->single() == false ){
-      try{
-        $query = "UPDATE $this->table SET alamat = :alamat, desa_id = :desa,kecamatan_id = :kecamatan,kabupaten_id = :kabupaten,provinsi_id = :provinsi,negara_id = :negara, username = :username ,no_telepon = :no_telepon,status_akun_id = :status_akun, tanggal_lahir = :tanggal_lahir,jenis_kelamin_id = :jenis_kelamin,nama_lengkap= :nama_lengkap WHERE email= :email";
-        $this->db->query($query);
-        $this->db->bind('email',$data['email']);
-        $this->db->bind('username',$data['username']);
-        $this->db->bind('no_telepon',$data['no_telepon']);
-        $this->db->bind('nama_lengkap',$data['nama_lengkap']);
-        $this->db->bind('jenis_kelamin',$data['jenis_kelamin']);
-        $this->db->bind('tanggal_lahir',$data['tanggal_lahir']);
-        $this->db->bind('status_akun',$data['status_akun']);
-        $this->db->bind('alamat',$data['alamat']);
-        $this->db->bind('desa',$data['desa']);
-        $this->db->bind('kecamatan',$data['kecamatan']);
-        $this->db->bind('kabupaten',$data['kabupaten']);
-        $this->db->bind('provinsi',$data['provinsi']);
-        $this->db->bind('negara',$data['negara']);
-        $this->db->execute();
-        return true;
-      }
-      catch (\Throwable $th) {
-        return false;
-      }
+    try{
+      $query = "UPDATE $this->table SET status_akun_id = :status_akun WHERE email= :email";
+      $this->db->query($query);
+      $this->db->bind('email',$data['email']);
+      $this->db->bind('status_akun',$data['status_akun']);
+      $this->db->execute();
+      return true;
     }
-    else{
-      return $this->db->single();
+    catch (\Throwable $th) {
+      return false;
     }
   }
   public function login($email, $password){
@@ -82,31 +60,50 @@ class Mitra_model{
     $query = "SELECT * FROM desa WHERE id = :id";
     $this->db->query($query);
     $this->db->bind('id',$id_desa);
-    $output .= ",".$this->db->single()['nama_desa'];
 
+    if(!is_bool($this->db->single())){
+      $output .= ",".$this->db->single()['nama_desa'];
+    }
+    else{
+      $output .= "";
+    }
     $query = "SELECT * FROM kecamatan WHERE id = :id";
     $this->db->query($query);
     $this->db->bind('id',$id_kecamatan);
-    $output .= ", ".$this->db->single()['nama_kecamatan']; 
-
+    if(!is_bool($this->db->single())){
+      $output .= ",".$this->db->single()['nama_kecamatan'];
+    }
+    else{
+      $output .= "";
+    }
     $query = "SELECT * FROM kabupaten WHERE id = :id";
     $this->db->query($query);
     $this->db->bind('id',$id_kabupaten);
-    $output .= ", ".$this->db->single()['nama_kabupaten']; 
-
+    if(!is_bool($this->db->single())){
+      $output .= ",".$this->db->single()['nama_kabupaten'];
+    }
+    else{
+      $output .= "";
+    }
     $query = "SELECT * FROM provinsi WHERE id = :id";
     $this->db->query($query);
     $this->db->bind('id',$id_provinsi);
-    $output .= ", ".$this->db->single()['nama_provinsi']; 
-
+    if(!is_bool($this->db->single())){
+      $output .= ",".$this->db->single()['nama_provinsi'];
+    }
+    else{
+      $output .= "";
+    }
     $query = "SELECT * FROM negara WHERE id = :id";
     $this->db->query($query);
     $this->db->bind('id',$id_negara);
-    $output .= ", ".$this->db->single()['nama_negara']; 
-
-
+    if(!is_bool($this->db->single())){
+      $output .= ",".$this->db->single()['nama_negara'];
+    }
+    else{
+      $output .= "";
+    }
     $output = substr_replace($output, '', 0, 1);
-
     return $output;
   }
 

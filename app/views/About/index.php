@@ -2,7 +2,7 @@
 
 <div class="main">
   <form action="" method="POST" style="padding-left: 30px;">
-    <table class="table table-striped table-hover" style="width: 500px;">
+    <table class="table table-striped table-hover">
         <input type="hidden" name="email" value="<?= $data['user_data']['email'] ?>">
 
         <h1>Profile</h1>

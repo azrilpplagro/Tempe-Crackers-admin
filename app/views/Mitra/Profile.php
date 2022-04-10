@@ -4,7 +4,7 @@
 
 <div class="main">
   <form action="" method="POST" style="padding-left: 30px;">
-    <table class="table" style="width: 500px;">
+    <table class="table table-striped table-hover">
         <input type="hidden" name="email" value="<?= $data['mitra_data']['email'] ?>">
         <tr>
           <td><h1>Profile</h1></td>
@@ -12,7 +12,7 @@
         </tr>
         <tr>
           <td>Email</td>
-          <td><input class="form-control" placeholder="email" value="<?= $data['mitra_data']['email'] ?>" disabled></td>
+          <td><?= $data['mitra_data']['email'] ?></td>
         </tr>
         <tr>
           <td>No Telepon</td>

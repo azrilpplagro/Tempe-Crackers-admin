@@ -42,6 +42,8 @@ class Mitra extends Controller{
     $controller_name = $_SESSION['controller_name'];
     $method_name = $_SESSION['method_name'];
     $params = $_SESSION['params'];
+
+
     if(count($params)<1){
       header("Location: ".BASE_URL."/Mitra");
     }
@@ -55,9 +57,10 @@ class Mitra extends Controller{
       var_dump($_POST);
     }
 
-
     if(isset($_POST['edit'])){
       $data_post = $_POST;
+      // var_dump($data_post);
+      // die();
       $this->view("Component/verifikasi_password",$data_post);
     }
     if(isset($_POST['verifikasi_password'])){
@@ -72,66 +75,20 @@ class Mitra extends Controller{
             break;
           }
         }
-        if($is_isset_null == false){
-          $is_validate_phone_number = true;
-          foreach ( str_split($_POST['no_telepon']) as $char) {
-            if(!is_numeric($char)){
-              $this->view("Component/modal_redirect",$data_alert = [
-                "type" => false,
-                "title" => "Peringatan",
-                "message" => "Nomor telepon harus angka!",
-                "url" => BASE_URL.'/Mitra/edit/'.$params[0]
-              ]);
-              $is_validate_phone_number = false;
-              break;
-            }
-          }
-          if($is_validate_phone_number == true){
-            if(strlen($_POST['no_telepon']) < 11 || strlen($_POST['no_telepon']) > 12 ){
-              $this->view("Component/modal_redirect",$data_alert = [
-                "type" => false,
-                "title" => "Peringatan",
-                "message" => "panjang nomor telepon harus 11-12",
-                "url" => BASE_URL.'/Mitra/edit/'.$params[0]
-              ]);
-              $is_validate_phone_number = false;
-            }
-          }
-
-          if($is_validate_phone_number == true){
-            $result = $this->model("Mitra_model")->update_data($_POST);
-            if(is_bool($result) ){
-              $this->view("Component/modal_redirect",$data_alert = [
-                "type" => true,
-                "title" => "Success",
-                "message" => "Data Berhasil Diperbarui",
-                "url" => BASE_URL.'/Mitra/Profile/'.$_POST['username']
-              ]);
-            }
-            else{
-              $key = "";
-              if($_POST['username'] == $result['username']){
-                $key .= ",username";
-              }
-              if($_POST['no_telepon'] == $result['no_telepon']){
-                $key .= ",no telepon";
-              }
-              $key = substr_replace($key, '', 0, 1);
-    
-              $this->view("Component/modal_redirect",$data_alert = [
-                "type" => false,
-                "title" => "Warning",
-                "message" => "$key yang anda masukan sudah dipakai",
-                "url" => BASE_URL.'/Mitra/edit/'.$params[0]
-              ]);
-            }
-          }
+        $result = $this->model("Mitra_model")->update_data($_POST);
+        if(is_bool($result) ){
+          $this->view("Component/modal_redirect",$data_alert = [
+            "type" => true,
+            "title" => "Success",
+            "message" => "Data Berhasil Diperbarui",
+            "url" => BASE_URL.'/Mitra/Profile/'.$params[0]
+          ]);
         }
         else{
           $this->view("Component/modal_redirect",$data_alert = [
             "type" => false,
             "title" => "Peringatan",
-            "message" => "Data input tidak boleh ada yang kosong",
+            "message" => "Data gagal diperbarui",
             "url" => BASE_URL.'/Mitra/edit/'.$params[0]
           ]);
         }

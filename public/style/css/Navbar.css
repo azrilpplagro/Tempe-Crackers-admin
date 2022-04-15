@@ -1,3 +1,14 @@
+.shadow-textarea textarea.form-control::placeholder {
+  font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}
+.null-value{
+  border-color: #E74C3C;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
 table tr td{
   font-size: 18px;
 }
@@ -25,7 +36,6 @@ section {
   align-items: center;
   justify-content: space-between;
   background-color: #F7CCAC;
-  /* background-color: black; */
 }
 #nav img{
   width: 40px;
@@ -60,9 +70,10 @@ section {
   display: flex;
   justify-content: center;
 }
-/* .side-bar img{
-  margin: auto;
-} */
+
+.side-bar .logo img{
+  width: 60%;margin:auto
+}
 
 .side-bar a{
   font-size: 20px;
@@ -73,13 +84,17 @@ section {
   display: flex;
   padding-left: 20px;
   align-items: center;
-  
+  padding-bottom: 0;
 }
 
 .side-bar a img{
   width: 30px;
 }
-.side-bar :hover{
+.side-bar a h4{
+  margin: 0;
+  padding: 0;
+}
+.side-bar a:hover{
   background-color: rgba(128, 128, 128, 0.185);
 }
 
@@ -89,6 +104,7 @@ section {
   
   padding-top: 50px;
   background-color: white;
+  padding-left: 20px;padding-top:60px;padding-right:20px;padding-bottom: 20px;
 }
 
 .main .main-account{

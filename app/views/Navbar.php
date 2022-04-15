@@ -22,7 +22,7 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
           <div class="animated-icon1"><span></span><span></span><span></span></div>
         </div>
         <form action="" method="POST">
-          <button type="submit" name="tombol_logout" class="btn"><img src="<?= BASE_URL ?>/icon/logout.png" style="width: 30px;margin-left:20px" alt=""></button>
+          <button type="submit" name="tombol_logout" class="btn"><img src="http://localhost/Tempe-Crackers/public/icon/logout.png" style="width: 30px;margin-left:20px" alt=""></button>
         </form>
       </div>
       
@@ -32,16 +32,19 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
 
 <div class="side-bar">
   <div class="logo">
-    <img src="<?= BASE_URL ?>/icon/logo.png" alt="" style="width: 80px;margin:auto">
-    <img src="<?= BASE_URL ?>/icon/brand.png" alt="" style="width: 80px;margin:auto">
+    <img src="http://localhost/Tempe-Crackers/public/icon/logo.png" alt="">
   </div>
   <a href="<?= BASE_URL ?>/Home">
-    <img src="<?= BASE_URL ?>/icon/Dashboard.png" alt="">
+    <img src="http://localhost/Tempe-Crackers/public/icon/Dashboard.png" alt="">
     <h4>Dashboard</h4>
   </a>
   <a href="<?= BASE_URL ?>/Mitra">
-    <img src="<?= BASE_URL ?>/icon/mitra.png" alt="">
+    <img src="http://localhost/Tempe-Crackers/public/icon/mitra.png" alt="">
     <h4>Partner</h4>
+  </a>
+  <a href="<?= BASE_URL ?>/Article">
+    <img src="http://localhost/Tempe-Crackers/public/icon/artikel.png" alt="">
+    <h4>Article</h4>
   </a>
   <br>
   
@@ -58,7 +61,7 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
       </div>
       <?php
       if($photo == ""){ ?>
-        <img style="border-radius: 50%;width:40px;height:40px;object-fit: cover;" src="<?= BASE_URL ?>/icon/akun.png" alt="">
+        <img style="border-radius: 50%;width:40px;height:40px;object-fit: cover;" src="http://localhost/Tempe-Crackers/public/icon/akun.png" alt="">
       <?php  
       }else{ ?>
         <img style="border-radius: 50%;width:40px;height:40px;object-fit: cover;" src="<?= BASE_URL ?>/img/<?= $photo ?>" alt="">
@@ -66,9 +69,9 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
       }
       ?>
     </a>
-    <!-- <img style="cursor:pointer" src="<?= BASE_URL ?>/icon/dropdown.png" alt=""> -->
+    <!-- <img style="cursor:pointer" src="http://localhost/Tempe-Crackers/public/icon/dropdown.png" alt=""> -->
     <form action="" method="POST">
-      <button type="submit" name="tombol_logout" class="btn"><img src="<?= BASE_URL ?>/icon/logout.png" style="width: 30px;margin-left:20px" alt=""></button>
+      <button type="submit" name="tombol_logout" class="btn"><img src="http://localhost/Tempe-Crackers/public/icon/logout.png" style="width: 30px;margin-left:20px" alt=""></button>
     </form>
     
   </div>

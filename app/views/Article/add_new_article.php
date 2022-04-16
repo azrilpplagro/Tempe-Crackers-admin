@@ -6,7 +6,8 @@
   }
   .shadow-textarea textarea.form-control {
       padding-left: 0.8rem;
-}
+  }
+
 </style>
 
 <div class="main">
@@ -19,7 +20,7 @@
           <td><input type="text" name="judul" placeholder="Write some title here..." class="form-control" id="validationCustom03" oninput="null_title_value(tag_name = 'judul')" required></td>
         </tr>
         <tr>
-          <td>Isi</td>
+          <td>Content</td>
           <td>
             <div class="form-group shadow-textarea">
               <textarea name="isi" class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="20" placeholder="Write something here..." id="validationCustom03" oninput="null_title_value(tag_name = 'isi')" required></textarea>
@@ -28,7 +29,13 @@
         </tr>
         <tr>
           <td>Image</td>
-          <td><input name="gambar" type="file" id="validationCustom03" required></td>
+          <td>
+            <div class="file-input">
+              <label class="btn btn-primary" for="upload-photo">Upload Image...</label>
+              <input name="gambar" type="file" required>
+            </div>
+            
+          </td>
         </tr>
         <tr>
           <td><button type="submit" name="create_new_article" value="create_new_article" class="btn btn-dark">Create New Article</button></td>

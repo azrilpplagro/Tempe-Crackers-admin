@@ -22,7 +22,13 @@
         </tr>
         <tr>
           <td>Image</td>
-          <td><input name="gambar" type="file" id="validationCustom03"></td>
+          <td>
+            <div class="file-input">
+              <label class="btn btn-primary" for="upload-photo">Upload Image...</label>
+              <input name="gambar" type="file" required>
+            </div>
+            
+          </td>
         </tr>
         <br>
       </tbody>
@@ -30,7 +36,7 @@
 
     <div style="display: flex; width:100%;justify-content:space-between">
       <a style="width:150px" href="<?= BASE_URL ?>/Article/index" class="btn btn-dark">Back</a>
-      <button style="width:150px" type="submit" name="edit_article" value="edit_article" class="btn btn-primary">Save</button>
+      <button style="width:150px" type="submit" name="edit_article" value="edit_article" class="btn btn-success">Save</button>
     </div>
     
   </form>

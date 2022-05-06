@@ -27,7 +27,7 @@
 
       <tr style="height: 150px;padding-bottom: 20px;" class="text-center" >
         <td><?= $i ?></td>
-        <td style="background-image: url('http://localhost/Tempe-Crackers/public/img/article/<?= $article['gambar'] ?>');background-size:cover;background-position:center">
+        <td style="background-image: url('http://localhost/Tempe-Crackers/public/img/article/<?= $article['gambar'] ?>?<?php echo time(); ?>');background-size:cover;background-position:center">
         </td>
         <td class="text-center"><p><?= $article['judul'] ?></p></td>
 

@@ -11,34 +11,14 @@ class Mitra extends Controller{
       "mitra_data" => $this->model("Mitra_model")->get_all_user()
     ];
     
-    // echo $this->controller;
     $this->view("header",$data['controller_name']);
     $this->view("Mitra/index",$data);
     $this->view("footer");
   
   }
 
-  public function profile(){
-    $controller_name = $_SESSION['controller_name'];
-    $method_name = $_SESSION['method_name'];
-    $params = $_SESSION['params'];
-    if(count($params)<1){
-      header("Location: ".BASE_URL."/Mitra");
-    }
-    $data = [
-      "controller_name"=>$controller_name,
-      "method_name"=> $method_name,
-      "mitra_data" => $this->model("Mitra_model")->get_specific_user($params[0])
-    ];
-    // var_dump($data['mitra_data']);
-    $this->view("header",$data['controller_name']);
-    $this->view("Mitra/Profile",$data);
-    $this->view("footer");
-  }
 
-
-
-  public function edit(){
+  public function Profile(){
     $controller_name = $_SESSION['controller_name'];
     $method_name = $_SESSION['method_name'];
     $params = $_SESSION['params'];
@@ -47,69 +27,43 @@ class Mitra extends Controller{
     if(count($params)<1){
       header("Location: ".BASE_URL."/Mitra");
     }
-    $data = [
-      "controller_name"=>$controller_name,
-      "method_name"=> $method_name,
-      "mitra_data" => $this->model("Mitra_model")->get_specific_user($params[0])
-    ];
+    
 
     if(isset($_POST['edites'])){
       var_dump($_POST);
     }
-
     if(isset($_POST['edit'])){
-      $data_post = $_POST;
-      // var_dump($data_post);
-      // die();
-      $this->view("Component/verifikasi_password",$data_post);
+      $data = [
+        "email"=>$_POST['email'],
+        "status"=>$_POST['status_akun']
+      ];
+      $this->view("Component/modal_deactivate_account",$data);
     }
-    if(isset($_POST['verifikasi_password'])){
-      if($_POST['password'] == $_SESSION['login-admin']['password']){
-        $_POST = $_SESSION['form'];
-        unset($_SESSION['form']);
-          // cek nilai null
-        $is_isset_null = false;
-        foreach ($_POST as $value) {
-          if($value == ""){
-            $is_isset_null = true;
-            break;
-          }
-        }
-        $result = $this->model("Mitra_model")->update_data($_POST);
-        if(is_bool($result) ){
-          $this->view("Component/modal_redirect",$data_alert = [
-            "type" => true,
-            "title" => "Success",
-            "message" => "Data saved successfully",
-            "url" => BASE_URL.'/Mitra/Profile/'.$params[0]
-          ]);
-        }
-        else{
-          $this->view("Component/modal_redirect",$data_alert = [
-            "type" => false,
-            "title" => "Peringatan",
-            "message" => "Failed to update data",
-            "url" => BASE_URL.'/Mitra/edit/'.$params[0]
-          ]);
-        }
+    if(isset($_POST['change_account'])){
+      $this->model("Mitra_model")->update_data($_POST);
+      if($_POST['account_status'] == 1){
+        $message = 'activated';
       }
-      else{
-        $this->view("Component/modal_redirect",$data_alert = [
-          "type" => false,
-          "title" => "Peringatan",
-          "message" => "Password Wrong!",
-          "url" => BASE_URL.'/Mitra/edit/'.$params[0]
-        ]);
+      else if($_POST['account_status'] == 2 ){
+        $message = 'deactivated';
       }
-      
+      $this->view("Component/modal_redirect",$data_alert = [
+        "type" => true,
+        "title" => "Success",
+        "message" => "Account $message successfully",
+        "url" => '',
+      ]);
     }
 
-
+    $data = [
+      "controller_name"=>$controller_name,
+      "method_name"=> $method_name,
+      "mitra_data" => $this->model("Mitra_model")->get_specific_user($params[0])
+    ];
       
     
-    // var_dump($data['mitra_data']);
     $this->view("header",$data['controller_name']);
-    $this->view("Mitra/edit",$data);
+    $this->view("$controller_name/$method_name",$data);
     $this->view("footer");
   }
 

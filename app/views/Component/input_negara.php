@@ -31,8 +31,6 @@
             <br>
             <center><button type="submit" name="input_negara" value="input_negara" class="btn btn-primary container" style="width:50%;" >Next</button></center>
         </form>
-
-
       </div>
     </div>
   </div>

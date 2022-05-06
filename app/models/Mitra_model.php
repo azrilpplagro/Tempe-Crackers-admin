@@ -12,6 +12,17 @@ class Mitra_model{
     $this->db->query("SELECT * FROM $this->table");
     return $this->db->result_set();
   }
+  public function searching_all_user($name_like){
+    $this->db->query("SELECT * FROM $this->table WHERE nama_lengkap LIKE '$name_like%'");
+    return $this->db->result_set();
+  
+  }
+
+
+  public function get_all_user_total_penjualan(){
+    $this->db->query("SELECT * FROM $this->table ORDER BY total_penjualan DESC");
+    return $this->db->result_set();
+  }
   public function get_data_user($email){
     try {
       $query = "SELECT * FROM $this->table WHERE email = :email";
@@ -37,7 +48,7 @@ class Mitra_model{
       $query = "UPDATE $this->table SET status_akun_id = :status_akun WHERE email= :email";
       $this->db->query($query);
       $this->db->bind('email',$data['email']);
-      $this->db->bind('status_akun',$data['status_akun']);
+      $this->db->bind('status_akun',$data['account_status']);
       $this->db->execute();
       return true;
     }

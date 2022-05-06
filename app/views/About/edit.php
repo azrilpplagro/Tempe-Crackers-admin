@@ -57,14 +57,12 @@
           <td>Gender</td>
           <td>
           <span style="display: flex;">
-      
             <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" aria-label="Default select example">
               <?php 
                 if($data['user_data']['jenis_kelamin_id'] == 1){echo '<option value="1" selected>Male</option>
                   <option value="2">Female</option>';}else{echo '<option value="1">Male</option>
                     <option value="2" selected>Female</option>';}  
               ?>
-              
             </select>
           </span>
           </td>

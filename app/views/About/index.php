@@ -41,6 +41,12 @@
               ?>
           </td>
         </tr>
+        <tr>
+          <td>Account Number</td>
+          <td><?php $data['user_data']['no_rekening']
+              ?>
+          </td>
+        </tr>
       </table>
     <a href="<?= BASE_URL ?>/About/edit"  class="btn btn-dark" style="width: 300px;">Edit</a>
   </form>

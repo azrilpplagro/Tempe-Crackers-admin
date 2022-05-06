@@ -46,6 +46,18 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
     <img src="http://localhost/Tempe-Crackers/public/icon/artikel.png" alt="">
     <h4>Article</h4>
   </a>
+  <a href="<?= BASE_URL ?>/Product">
+    <img src="http://localhost/Tempe-Crackers/public/icon/produk.png" alt="">
+    <h4>Produk</h4>
+  </a>
+  <a href="<?= BASE_URL ?>/Sale">
+    <img src="http://localhost/Tempe-Crackers/public/icon/sale.png" alt="">
+    <h4>Sale</h4>
+  </a>
+  <a href="<?= BASE_URL ?>/History">
+    <img src="http://localhost/Tempe-Crackers/public/icon/history.png" alt="">
+    <h4>History</h4>
+  </a>
   <br>
   
 </div>

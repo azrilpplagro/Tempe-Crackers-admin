@@ -25,7 +25,7 @@
           <td>
             <div class="file-input">
               <label class="btn btn-primary" for="upload-photo">Upload Image...</label>
-              <input name="gambar" type="file" required>
+              <input name="gambar" type="file">
             </div>
             
           </td>

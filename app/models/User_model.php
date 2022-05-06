@@ -19,7 +19,7 @@ class User_model{
       return "Error";
     }
   }
-  // }
+  
 
   public function update_data($data){
     

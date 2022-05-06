@@ -121,8 +121,6 @@ class About extends Controller{
           unlink(realpath($_SERVER["DOCUMENT_ROOT"])."/Tempe-Crackers-admin/public/img/$photo");
           $this->uploadImg(); 
         }
-        
-        
       }
     }
 

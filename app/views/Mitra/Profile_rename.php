@@ -4,7 +4,7 @@
 
 <div class="main">
   <form action="" method="POST" style="padding-left: 30px;">
-    <table class="table"">
+    <table class="table table-striped table-hover">
         <input type="hidden" name="email" value="<?= $data['mitra_data']['email'] ?>">
         <tr>
           <td><h1>Profile</h1></td>
@@ -15,7 +15,7 @@
           <td><?= $data['mitra_data']['email'] ?></td>
         </tr>
         <tr>
-          <td>Phone Number</td>
+          <td>No Telepon</td>
           <td><?= $data['mitra_data']['no_telepon'] ?></td>
         </tr>
         <tr>
@@ -23,56 +23,46 @@
           <td><?= $data['mitra_data']['username'] ?></td>
         </tr>
         <tr>
-          <td>Ful Name</td>
+          <td>Nama Lengkap</td>
           <td><?= $data['mitra_data']['nama_lengkap'] ?></td>
         </tr>
         <tr>
-          <td>Address</td>
+          <td>Alamat</td>
           <td><?= $data['mitra_data']['alamat'] ?>, <?= 
             $this->model("Mitra_model")->get_spesifik_alamat(
               $data['mitra_data']['desa_id'],$data['mitra_data']['kecamatan_id'], $data['mitra_data']['kabupaten_id'],$data['mitra_data']['provinsi_id'],$data['mitra_data']['negara_id']); 
           ?></td>
         </tr>
         <tr>
-          <td>Date of Birth</td>
+          <td>Tanggal Lahir</td>
           <td><?= $data['mitra_data']['tanggal_lahir'] ?></td>
         </tr>
         <tr>
-          <td>Gender</td>
+          <td>Jenis Kelamin</td>
           <td>
               <?php 
                 if($data['mitra_data']['jenis_kelamin_id'] == 1){
-                  echo  'Male';
+                  echo  'Laki-laki';
                 }else{
-                  echo  'Female';
+                  echo  'Perempuan';
                 }  
               ?>
           </td>
         </tr>
         <tr>
-          <td>Account Status</td>
+          <td>Status Akun</td>
           <td>
             <?php 
-              if($data['mitra_data']['status_akun_id'] == 1){
-                ?>
-                  <input type="hidden" value="1" name="status_akun">
-                  Active
-                <?php
-              }
-              else{
-                ?>
-                  <input type="hidden" value="2" name="status_akun">
-                  Not Active
-                <?php
-              }  
-            ?>
-            </span>
+                if($data['mitra_data']['status_akun_id'] == 1){
+                  echo  'Aktif';
+                }else{
+                  echo  'Tidak Aktif';
+                }  
+              ?>
           </td>
         </tr>
       </table>
     <br>
-    <div style="display: flex;width:100%;flex-direction:column;align-items:flex-end">
-      <button type="submit" name="edit" value="submit" class="btn btn-dark" style="width: 300px;right:0">Edit Status</button>
-    </div>
+    <a href="<?= BASE_URL ?>/Mitra/edit/<?= $data['mitra_data']['username'] ?>"  class="btn btn-dark" style="width: 300px;">Edit</a>
   </form>
 </div>

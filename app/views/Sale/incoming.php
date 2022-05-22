@@ -23,11 +23,15 @@
         if($order['metode_pembayaran'] == 'transfer' && $order['bukti_pembayaran'] == ""  ){}
         else { ?>
           <div class="list-order">
+            <div style="width: 100%">
+              <h5><?= $this->model("Mitra_model")->get_data_user($order['mitra_email'])['nama_lengkap'] ?></h5>
+              <p><?= $order['tanggal_pesan'] ?></p>
+            </div>
             <div class="img" style="background-image: url(http://localhost/Tempe-Crackers/public/img/products/<?= $detail_product['gambar'] ?>);">
             </div>
             <div style="margin:20px;display:flex;flex-direction:column;justify-content:space-between">
               <div>
-                <h5><?= $detail_product['nama_produk'] ?> | <?= $detail_product['berat'] ?>kg | <?= $order['metode_pembayaran'] ?> | <?= $order['jenis_pengiriman'] ?> | <?= $this->model("Mitra_model")->get_data_user($order['mitra_email'])['nama_lengkap'] ?> </h5>
+                <h5><?= $detail_product['nama_produk'] ?> | <?= $detail_product['berat'] ?>kg | <?= $order['metode_pembayaran'] ?> | <?= $order['jenis_pengiriman'] ?></h5>
                 <h6>x <?= $order['jumlah_pesanan'] ?> </h6>
                 <h6>Total Pembayaran : Rp.<?= $order['total_pembayaran'] ?></h6>
               </div>
@@ -47,9 +51,25 @@
 
                   <?php
                   if($order['metode_pembayaran'] == "transfer"){ ?>
-                    <td>
-                      <a href="<?= BASE_URL ?>/Sale/payment_validation/<?= $order['id'] ?>" style="width: 250px;font-size:15px" class="btn btn-success">Payment Validation</a>
-                    </td>
+                    <?php
+                      if($order['jenis_pengiriman'] == 'pickup' && $order['status_pembayaran'] == 'Lunas' ){ ?>
+                        <td>
+                          <a href="<?= BASE_URL ?>/Sale/payment_validation/<?= $order['id'] ?>" style="width: 250px;font-size:15px" class="btn btn-success">Payment Validation</a>
+                        </td>
+                        <td>
+                          <form action="" method="POST">
+                            <button type="submit" name="tombol_confirm" value="<?= $order['id'] ?>" style="margin-left:10px;width: 250px;font-size:15px" class="btn btn-dark">Order Confirmation</button>
+                          </form>
+                        </td>
+                      <?php }
+                      else{ ?>
+                        <td>
+                          <a href="<?= BASE_URL ?>/Sale/payment_validation/<?= $order['id'] ?>" style="width: 250px;font-size:15px" class="btn btn-success">Payment Validation</a>
+                        </td>
+                      <?php
+                      } 
+                    ?>
+                    
                   <?php }
                   else if ($order['metode_pembayaran'] == "cod" && $order['jenis_pengiriman'] == 'pickup'){ ?>
                     <td>

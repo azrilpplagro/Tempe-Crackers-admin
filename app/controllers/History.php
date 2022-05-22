@@ -61,11 +61,6 @@ class History extends Controller{
       usort($data['data_mitra'], 'compareByName');
     }
     
-    
-    
-
-    
-
   
     $this->view("header",$data['controller_name']);
     $this->view("$controller_name/$method_name",$data);

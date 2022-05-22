@@ -61,6 +61,14 @@ $detail_product = $this->model("Product_model")->get_spesific_product($data['det
   </span>
   <br><hr>
 
+  <?php if($data['detail_order']['status_diterima'] == "Dibatalkan"){ ?>
+    <h5>Cancellation Detail</h5>
+    <p style="color: red;">Cancellation details canceled automatically by the system for not making a payment within 1 x 24 hours</p>
+    <hr>
+  <?php }
+   ?>
+    
+
   <table class="table">
     <tr>
       <td>Order Time</td>

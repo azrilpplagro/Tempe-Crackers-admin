@@ -34,27 +34,27 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
   <div class="logo">
     <img src="http://localhost/Tempe-Crackers/public/icon/logo.png" alt="">
   </div>
-  <a href="<?= BASE_URL ?>/Home">
+  <a href="<?= BASE_URL ?>/Home" <?php if($_SESSION['controller_name'] == "Home" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/Dashboard.png" alt="">
     <h4>Dashboard</h4>
   </a>
-  <a href="<?= BASE_URL ?>/Mitra">
+  <a href="<?= BASE_URL ?>/Mitra" <?php if($_SESSION['controller_name'] == "Mitra" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/mitra.png" alt="">
     <h4>Partner</h4>
   </a>
-  <a href="<?= BASE_URL ?>/Article">
+  <a href="<?= BASE_URL ?>/Article" <?php if($_SESSION['controller_name'] == "Article" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/artikel.png" alt="">
     <h4>Article</h4>
   </a>
-  <a href="<?= BASE_URL ?>/Product">
+  <a href="<?= BASE_URL ?>/Product" <?php if($_SESSION['controller_name'] == "Product" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/produk.png" alt="">
     <h4>Produk</h4>
   </a>
-  <a href="<?= BASE_URL ?>/Sale">
+  <a href="<?= BASE_URL ?>/Sale" <?php if($_SESSION['controller_name'] == "Sale" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/sale.png" alt="">
     <h4>Sale</h4>
   </a>
-  <a href="<?= BASE_URL ?>/History">
+  <a href="<?= BASE_URL ?>/History" <?php if($_SESSION['controller_name'] == "History" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/history.png" alt="">
     <h4>History</h4>
   </a>

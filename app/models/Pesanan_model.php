@@ -100,7 +100,7 @@ class Pesanan_model{
   public function confirm_shipping($id){
     $tanggal_terima = date("Y-m-d");
     $this->db->query(
-      "UPDATE $this->table set status_pengiriman = 'Sudah Dikirim', status_diterima = 'Diterima', tanggal_terima = :tanggal_terima WHERE id=:id "
+      "UPDATE $this->table set status_pengiriman = 'Sudah Dikirim', status_pembayaran = 'Lunas', status_diterima = 'Diterima', tanggal_terima = :tanggal_terima WHERE id=:id "
     );
     $this->db->bind('id',$id);
     $this->db->bind('tanggal_terima', $tanggal_terima);

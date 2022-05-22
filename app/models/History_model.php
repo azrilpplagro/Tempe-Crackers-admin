@@ -11,7 +11,7 @@ class History_model{
 
   public function get_last_order_date($email){
     $this->db->query(
-      "SELECT tanggal_terima FROM $this->table WHERE mitra_email = :email  ORDER BY id DESC LIMIT 1"
+      "SELECT tanggal_terima FROM $this->table WHERE mitra_email = :email AND status_diterima = 'Diterima'  ORDER BY id DESC LIMIT 1"
     );
     $this->db->bind('email',$email);
     if(isset($this->db->single()['tanggal_terima'])){

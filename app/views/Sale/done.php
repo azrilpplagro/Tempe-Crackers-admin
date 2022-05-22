@@ -32,11 +32,15 @@
     $detail_product = $this->model("Product_model")->get_spesific_product($order['produk_id']);
     ?>
        <a href="<?= BASE_URL ?>/Sale/detail_order_done/<?= $order['id'] ?>" class="list-order">
+          <div style="width: 100%">
+            <h5><?= $this->model("Mitra_model")->get_data_user($order['mitra_email'])['nama_lengkap'] ?></h5>
+            <p><?= $order['tanggal_pesan'] ?></p>
+          </div>
           <div class="img" style="background-image: url(http://localhost/Tempe-Crackers/public/img/products/<?= $detail_product['gambar'] ?>);">
           </div>
           <div style="margin:20px;display:flex;flex-direction:column;justify-content:space-between">
             <div>
-              <h5><?= $detail_product['nama_produk'] ?> | <?= $detail_product['berat'] ?>kg | <?= $order['metode_pembayaran'] ?> | <?= $order['jenis_pengiriman'] ?> | <?= $this->model("Mitra_model")->get_data_user($order['mitra_email'])['nama_lengkap'] ?> </h5>
+              <h5><?= $detail_product['nama_produk'] ?> | <?= $detail_product['berat'] ?>kg | <?= $order['metode_pembayaran'] ?> | <?= $order['jenis_pengiriman'] ?> </h5>
               <h6>x <?= $order['jumlah_pesanan'] ?> </h6>
               <h6>Total Pembayaran : Rp.<?= $order['total_pembayaran'] ?></h6>
             </div>

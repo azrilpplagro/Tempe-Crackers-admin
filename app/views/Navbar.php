@@ -48,7 +48,7 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
   </a>
   <a href="<?= BASE_URL ?>/Product" <?php if($_SESSION['controller_name'] == "Product" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/produk.png" alt="">
-    <h4>Produk</h4>
+    <h4>Product</h4>
   </a>
   <a href="<?= BASE_URL ?>/Sale" <?php if($_SESSION['controller_name'] == "Sale" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/sale.png" alt="">
@@ -56,7 +56,7 @@ $photo = $this->model("User_model")->get_data_user($_SESSION['login-admin']['ema
   </a>
   <a href="<?= BASE_URL ?>/History" <?php if($_SESSION['controller_name'] == "History" ) echo 'style="background-color: rgba(128, 128, 128, 0.315);' ?>">
     <img src="http://localhost/Tempe-Crackers/public/icon/history.png" alt="">
-    <h4>History</h4>
+    <h4>History Order</h4>
   </a>
   <br>
   

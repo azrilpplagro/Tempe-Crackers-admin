@@ -20,7 +20,7 @@
       <h6>sent</h6>
     </a>
     <a href="<?= BASE_URL ?>/Sale/done" >
-      <h6>complicated</h6>
+      <h6>done</h6>
     </a>
     <a href="<?= BASE_URL ?>/Sale/canceled" style="border-bottom: 3px solid white;">
       <h6>canceled</h6>

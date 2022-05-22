@@ -8,7 +8,7 @@
       <h6>sent</h6>
     </a>
     <a href="<?= BASE_URL ?>/Sale/done">
-      <h6>complicated</h6>
+      <h6>done</h6>
     </a>
     <a href="<?= BASE_URL ?>/Sale/canceled">
       <h6>canceled</h6>

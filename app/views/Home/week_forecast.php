@@ -24,9 +24,11 @@
       <?php
       for ($i=1; $i <count($data['data_weather']['daily']) ; $i++) { ?>
         <a href="<?= BASE_URL ?>/Home/another_day/<?= $i ?>" class="box-day">
-          <p><?= $data['week_day_data'][$i]['day_name'] ?> <?= $data['week_day_data'][$i]['date'] ?></p>
-          <img src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['daily'][$i]['weather'][0]['icon']  ?>.png" alt="">
-          <h5><?= $data['data_weather']['daily'][$i]['weather'][0]['description'] ?></h5>
+          <center>
+            <p><?= $data['week_day_data'][$i]['day_name'] ?> <?= $data['week_day_data'][$i]['date'] ?></p>
+            <img src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['daily'][$i]['weather'][0]['icon']  ?>.png" alt="">
+            <h5><?= $data['data_weather']['daily'][$i]['weather'][0]['description'] ?></h5>
+          </center>
         </a>
       <?php }
       ?>
@@ -42,7 +44,7 @@
     </div>
 
     <div style="color:black;text-decoration:black;display: flex;flex-wrap:wrap;">
-        <img src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['current']['weather'][0]['icon']  ?>.png" alt="">
+        <img style="width: 140px;height:140px" src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['current']['weather'][0]['icon']  ?>.png" alt="">
         <h1 style="align-self: center;"><?= $data['data_weather']['hourly'][0]['temp'] ?>&#8451</h1>
 
         <div style="align-self: center;margin-left:40px">
@@ -50,12 +52,12 @@
           <?php
             if (str_contains(strtolower($data['data_weather']['current']['weather'][0]['description']), 'rain') || str_contains(strtolower($data['data_weather']['current']['weather'][0]['description']), 'overcast')  ) { ?>
               <div style="width: 100%;padding:40px;" class="btn btn-danger">
-                <h1>"Today's weather is not suitable for drying"</h1>
+                <h5>"Today's weather is not suitable for drying"</h5>
               </div>
             <?php }
             else{ ?>
               <div style="width: 100%;padding:40px;" class="btn btn-success">
-                <h1>"Today's weather is perfect for the drying process"</h1>
+                <h5>"Today's weather is perfect for the drying process"</h5>
               </div>
             <?php }
           ?>

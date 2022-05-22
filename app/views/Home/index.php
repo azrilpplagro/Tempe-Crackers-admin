@@ -4,10 +4,15 @@
 
 <div class="main">
   <h3>Dashboard</h3>
-  <h6>
-  <?= $data['user_data']['alamat'] ?>, <?= $this->model("Mitra_model")->get_spesifik_alamat($data['user_data']['desa_id'],$data['user_data']['kecamatan_id'], $data['user_data']['kabupaten_id'],$data['user_data']['provinsi_id'],$data['user_data']['negara_id']); 
-  ?>
-  </h6>
+
+  <div style="display: flex;align-items:flex-end">
+    <img src="http://localhost/Tempe-Crackers/public/icon/location.png" style="width: 30px;" alt="">
+    <h6>
+    <?= $data['user_data']['alamat'] ?>, <?= $this->model("Mitra_model")->get_spesifik_alamat($data['user_data']['desa_id'],$data['user_data']['kecamatan_id'], $data['user_data']['kabupaten_id'],$data['user_data']['provinsi_id'],$data['user_data']['negara_id']); 
+    ?>
+    </h6>
+  </div>
+  
   <br>
 
   <div class="weather-box">
@@ -21,8 +26,8 @@
       }
       ?>.00
     </p>
-    <a href="<?= BASE_URL ?>/Home/week_forecast" style="color:black;text-decoration:black;display: flex;flex-wrap:wrap;">
-      <img src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['current']['weather'][0]['icon']  ?>.png" alt="">
+    <a href="<?= BASE_URL ?>/Home/week_forecast" style="color:black;text-decoration:black;display: flex;flex-wrap:wrap">
+      <img style="width: 140px;height:140px" src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['current']['weather'][0]['icon']  ?>.png" alt="">
       <h1 style="align-self: center;"> <?= $data['data_weather']['hourly'][0]['temp'] ?> &#8451</h1>
 
       <div style="align-self: center;margin-left:40px">
@@ -30,12 +35,12 @@
         <?php
           if (str_contains(strtolower($data['data_weather']['current']['weather'][0]['description']), 'rain') || str_contains(strtolower($data['data_weather']['current']['weather'][0]['description']), 'overcast')  ) { ?>
             <div style="width: 100%;padding:40px;" class="btn btn-danger">
-              <h1>"Today's weather is not suitable for drying"</h1>
+              <h5>"Today's weather is not suitable for drying"</h5>
             </div>
           <?php }
           else{ ?>
             <div style="width: 100%;padding:40px;" class="btn btn-success">
-              <h1>"Today's weather is perfect for the drying process"</h1>
+              <h5>"Today's weather is perfect for the drying process"</h5>
             </div>
           <?php }
         ?>
@@ -49,17 +54,19 @@
           $hour = $data['now_hour'];
           for ($i=0; $i < 23; $i++) {  ?>
             <div class="hour-box swiper-slide" style="background-color: rgba(196, 196, 196, 0.52);">
-              <p><?php 
-                if($hour < 10){
-                  echo "0$hour";
-                } 
-                else{
-                  echo $hour;
-                }
-              ?>.00
-              </p>
-              <img style="width: 50px;" src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['hourly'][$i]['weather'][0]['icon']  ?>.png" alt="">
-              <p style="align-self: center;"><?= $data['data_weather']['hourly'][$i]['temp'] ?>&#8451</p>
+              <center>
+                <p><?php 
+                  if($hour < 10){
+                    echo "0$hour";
+                  } 
+                  else{
+                    echo $hour;
+                  }
+                ?>.00
+                </p>
+                <img style="width: 50px;" src="<?= BASE_URL ?>/icon/weather_icon/<?= $data['data_weather']['hourly'][$i]['weather'][0]['icon']  ?>.png" alt="">
+                <p style="align-self: center;"><?= $data['data_weather']['hourly'][$i]['temp'] ?>&#8451</p>
+              </center>
             </div>
           <?php 
             if($hour == 24){
